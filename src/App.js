@@ -1,17 +1,18 @@
 import './App.css';
-import {store} from "./store/store";
 import {useDispatch, useSelector} from "react-redux";
-import {counterReducer} from "./store/reducer";
+import {decrementAC, incrementAC} from "./store/reducer";
 
 function App() {
     const value = useSelector((state) => state.value)
     const dispatch = useDispatch()
 
     const increment = () => {
-        dispatch({type: 'counter/incremented'})
+       let valueIncrement = prompt()
+        dispatch(incrementAC(Number(valueIncrement)))
     }
     const decrement = () => {
-        dispatch({type: 'counter/decremented'})
+        let valueDecrement = prompt()
+        dispatch(decrementAC(Number(valueDecrement)))
     }
 
     return (
